@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: joe-portfolio-deployment
+  namespace: joe-portfolio
+  labels:
+    app: joe-portfolio-nextjs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: joe-portfolio-nextjs
+  template:
+    metadata:
+      labels:
+        app: joe-portfolio-nextjs
+    spec:
+      containers:
+      - name: moves-clone-frontend
+        image: docker pull ghcr.io/joesandao/joe-portfolio:673abe2
+        ports:
+        - containerPort: 3000

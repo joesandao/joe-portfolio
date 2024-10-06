@@ -1,0 +1,33 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: joe-portfolio-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: portfolio@iput-kernel.com
+    http:
+      paths:
+      - path: /tk210418/joe-kuroha
+        pathType: Prefix
+        backend:
+          service:
+            name: joe-portfolio-svc
+            port:
+              number: 80
+---
+### Service 作成
+apiVersion: v1
+kind: Service
+metadata:
+  name: joe-portfolio-svc
+  namespace: joe-portfolio
+spec:
+  selector:
+    app: joe-portfolio-nextjs
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80

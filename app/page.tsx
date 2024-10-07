@@ -11,7 +11,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // 3秒間のローディング時間を設定
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);

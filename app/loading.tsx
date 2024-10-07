@@ -45,7 +45,7 @@ export default function Loading() {
   }, [currentMessageIndex]);
 
   return (
-    <div className="flex flex-col items-start justify-center h-screen bg-black text-white p-4">
+    <div className="flex flex-col items-start h-screen bg-black text-white p-4">
       {bootMessages.map((message, index) => {
         const match = message.match(/^\[(.*?)\]\s(.*)/);
         const status = match ? match[1] : '';

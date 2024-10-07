@@ -36,7 +36,7 @@ export default function Loading() {
 
   useEffect(() => {
     if (currentMessageIndex < bootMessages.length - 1) {
-      const randomDelay = Math.random() * (200 - 50) + 50; // 0.05秒から0.20秒の間でランダムな遅延
+      const randomDelay = Math.random() * 150 ; 
       const timer = setTimeout(() => {
         setCurrentMessageIndex(currentMessageIndex + 1);
       }, randomDelay);

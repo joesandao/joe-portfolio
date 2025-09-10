@@ -15,7 +15,7 @@ export default function CommandAnimation({ command, onComplete }: CommandAnimati
 
   return (
     <h1 className='flex text-2xl text-left'>
-      <p className='text-lime-500'>joe@kuroha</p> <p className='pr-1'>:~$</p> {command.split("").map((char, index) => (
+      <p className='text-lime-500'>joe_kuroha@0utl1er</p> <p className='pr-1'>:~$</p> {command.split("").map((char, index) => (
         <motion.span
           key={index}
           initial={{ opacity: 0 }}

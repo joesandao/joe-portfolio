@@ -15,10 +15,13 @@ const Navbar = () => {
         </Link>
         <div className='flex gap-10'>
             <Link href='/top'>
-                <p className='mr-5 text-lg'>Top</p>
+                <p className='mr-5 text-lg'>About</p>
             </Link>
             <Link href='/skill'>
-                <p className='mr-5 text-lg'>Skill</p>
+                <p className='mr-5 text-lg'>Products</p>
+            </Link>
+            <Link href='/members'>
+                <p className='mr-5 text-lg'>Members</p>
             </Link>
             <Link href='/contact'>
                 <p className='mr-5 text-lg'>Contact</p>

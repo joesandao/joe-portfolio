@@ -7,7 +7,7 @@ export default function ContactTable() {
       +----------------+-----------------------------------+<br />
       | Media          | Address                           |<br />
       +----------------+-----------------------------------+<br />
-      | Email          | <EmailLink />               |<br />
+      | Email          | <EmailLink />                  |<br />
       | Zenn           | <ZennLink />                   |<br />
       | Instagram      | <InstagramLink />            |<br />
       | GitHub         | <GithubLink />              |<br />
@@ -19,7 +19,7 @@ export default function ContactTable() {
 function EmailLink() {
   return (
     <Link href="kuroha.j@outlook.jp" className="text-blue-500 underline">
-      kuroha.j@outlook.jp
+      joe@0utl1er.tech
     </Link>
   );
 }

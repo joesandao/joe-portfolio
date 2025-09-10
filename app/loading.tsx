@@ -2,10 +2,24 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
+
+const asciiArt = String.raw`
+
+ $$$$$$\  $$\   $$\ $$$$$$$$\ $$\         $$\   $$$$$$$$\ $$$$$$$\  
+$$$ __$$\ $$ |  $$ |\__$$  __|$$ |      $$$$ |  $$  _____|$$  __$$\ 
+$$$$\ $$ |$$ |  $$ |   $$ |   $$ |      \_$$ |  $$ |      $$ |  $$ |
+$$\$$\$$ |$$ |  $$ |   $$ |   $$ |        $$ |  $$$$$\    $$$$$$$  |
+$$ \$$$$ |$$ |  $$ |   $$ |   $$ |        $$ |  $$  __|   $$  __$$< 
+$$ |\$$$ |$$ |  $$ |   $$ |   $$ |        $$ |  $$ |      $$ |  $$ |
+\$$$$$$  /\$$$$$$  |   $$ |   $$$$$$$$\ $$$$$$\ $$$$$$$$\ $$ |  $$ |
+ \______/  \______/    \__|   \________|\______|\________|\__|  \__|
+                                                                    
+`;
+
 const bootMessages = [
+  asciiArt,
   "[ OK ] Starting system log daemon...",
   "[ OK ] Starting network manager...",
-  "[ OK ] Mounting local filesystems...",
   "[ OK ] Starting Nginx web server...",
   "[ OK ] Starting firewall...",
   "[ OK ] Starting cron daemon...",
@@ -18,35 +32,49 @@ const bootMessages = [
   "[ OK ] Starting kernel log daemon...",
   "[ OK ] Starting system monitoring daemon...",
   "[ OK ] Starting disk management services...",
-  "[ OK ] Starting user login services...",
-  "[ OK ] Starting graphical interface...",
-  "[ OK ] Starting desktop environment...",
-  "[ OK ] Loading user information...",
-  "[ OK ] Initializing sound system...",
   "[ OK ] Starting network time synchronization...",
   "[ OK ] Starting package management services...",
   "[ OK ] Starting system update services...",
   "[ OK ] Starting backup services...",
   "[ OK ] System boot complete.",
-  "[ OK ] Welcome to My Portfolio!"
+  "[ OK ] Welcome to Our HP!"
 ];
+
+
 
 export default function Loading() {
   const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
 
   useEffect(() => {
     if (currentMessageIndex < bootMessages.length - 1) {
-      const randomDelay = Math.random() * 150 ; 
+      // ASCIIアートの場合は少し長めの遅延
+      const delay = currentMessageIndex === 0 ? 500 : Math.random() * 150 ; 
       const timer = setTimeout(() => {
         setCurrentMessageIndex(currentMessageIndex + 1);
-      }, randomDelay);
+      }, delay);
       return () => clearTimeout(timer);
     }
   }, [currentMessageIndex]);
 
   return (
-    <div className="flex flex-col items-start h-screen bg-black text-white p-4">
+    <div className="flex flex-col items-start h-screen bg-black text-white p-4 text-xl">
       {bootMessages.map((message, index) => {
+        // ASCIIアートの場合は特別な処理
+        if (message === asciiArt) {
+          return (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: index <= currentMessageIndex ? 1 : 0 }}
+              transition={{ duration: 0.1 }}
+              className="text-lime-500 font-mono whitespace-pre"
+            >
+              {message}
+            </motion.div>
+          );
+        }
+        
+        // 通常のブートメッセージの処理
         const match = message.match(/^\[(.*?)\]\s(.*)/);
         const status = match ? match[1] : '';
         const rest = match ? match[2] : message;

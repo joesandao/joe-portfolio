@@ -10,7 +10,7 @@ import BioTable from '@/components/top/BioTable';
 import {useState} from 'react'
 
 export default function Top() {
-  const commands = ["whoami", "CREATE TABLE `Bio`"];
+  const commands = ["echo $CEO", "CREATE TABLE `Bio`"];
   const [currentStep, setCurrentStep] = useState(0);
 
   const handleCommandComplete = () => {

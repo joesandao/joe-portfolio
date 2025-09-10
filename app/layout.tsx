@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Joe Kuroha | 黒羽　晟',
-  description: 'ウェブアプリの開発からインフラ構築まで。一人で完結できるフルスタック人材です。',
+  title: '0UTL1ER | アウトライヤ株式会社',
+  description: '0UTL1ERは東京都千代田区に本社を置く、ウェブアプリケーション開発会社です。批判を恐れず、個人の意思を重視した革新的なプロジェクトを推進しています。',
 }
 
 export default function RootLayout({

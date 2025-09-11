@@ -53,8 +53,8 @@ export default function Top() {
                   <td className="text-white pb-4">黒羽 晟</td>
                 </tr>
                 <tr>
-                  <td className="w-32 font-semibold text-gray-300 pr-4 pb-4">電話番号</td>
-                  <td className="text-white pb-4">090-3724-1917</td>
+                  <td className="w-32 font-semibold text-gray-300 pr-4 pb-4">資本金</td>
+                  <td className="text-white pb-4">114,514円</td>
                 </tr>
                 <tr>
                   <td className="w-32 font-semibold text-gray-300 pr-4 pb-4">メール</td>

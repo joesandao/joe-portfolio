@@ -7,18 +7,9 @@ import { ChevronDownIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 function Accordion({
-  collapsible,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
-  // collapsible属性をDOMに渡さないように分離
-  const { collapsible: _, ...restProps } = props as any
-  
-  return (
-    <AccordionPrimitive.Root 
-      data-slot="accordion" 
-      {...restProps} 
-    />
-  )
+  return <AccordionPrimitive.Root data-slot="accordion" {...props} />
 }
 
 function AccordionItem({
